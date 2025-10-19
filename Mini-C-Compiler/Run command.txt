@@ -1,0 +1,39 @@
+Lexical-->
+cd '1.Lexical Analysis'
+lex lexer.l
+cc lex.yy.c
+./a.out
+
+
+syntax -->
+cd '2.Syntax Analysis'
+lex parser.l
+yacc parser.y
+gcc y.tab.c -ll -w
+./a.out test1.c
+
+
+sementic-->
+cd '3.Semantic Analysis' 
+lex parser.l
+yacc parser.y
+gcc y.tab.c -ll -w
+./a.out test1.c
+
+
+Intermediate code generator (ICG)-->
+cd 4.ICG 
+lex parser.l
+yacc parser.y
+gcc y.tab.c -ll -w
+./a.out test1.c
+
+
+Code Optimization-->
+cd '5.code Optimization'
+python3 icg_opt.py input.txt --print
+
+
+Assembly Code Generation-->
+cd '6.Assembly Code Generation'
+python3 gen.py icg.txt
